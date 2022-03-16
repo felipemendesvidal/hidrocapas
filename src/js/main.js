@@ -47,3 +47,14 @@ function fecharMenu(){
 
 
 
+const btnMobile = document.getElementById('btn-mobile');
+function toggleMenu (){
+  const nav = document.getElementsByClassName('nav-new');
+  nav.classList.toggle('active')
+  
+}
+btnMobile.addEventListener('click', toggleMenu)
+
+
+
+

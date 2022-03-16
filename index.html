@@ -51,10 +51,15 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8RTX6D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <header class="header">
-   <a href="index.html" class="logo"><img src="src/img/logo.png" alt="logo escrito hidrocapas em azul"></a>
-   <nav class="nav">
-     <ul class="menu">
+  <header id="header-new">
+   <a href="index.html" id="logo-new"><img src="src/img/logo.png" alt="logo escrito hidrocapas em azul"></a>
+   <nav id="nav-new">
+     <button id="btn-mobile" aria-expanded="false" aria-controls="menu-new" aria-haspopup="true" aria-label="Abrir menu">Menu
+
+      <span id="burger"></span>
+
+     </button>
+     <ul id="menu-new" role="menu">
        <li><a href="index.html">Inicio</a></li>
        <li><a href="quem-somos.html">Sobre</a></li>
        <li><a href="capas_spa.html">Capas Termicas</a></li>
@@ -62,7 +67,9 @@
        <li><a href="contato.html">Contato</a></li>  
      </ul>
    </nav>
+   
   </header>
+
 
   <!-- banner -->
   <div class="overlay" id="home"></div>
@@ -105,6 +112,7 @@
             E até hoje tem nos sustentado no mercado como uma empresa séria e compromissada com seus clientes.
             Fabricando produtos de alta qualidade.
           </p>
+
 
           <div class="box-bt">
             <a href="quem-somos.html" class="btn_primary">Nossa Historia</a>
@@ -154,7 +162,7 @@
   </section>
 
 
-  <section class="section-portfolio" id="portfolio">
+  <section class="section-portfolio" id="portfolio ">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -169,7 +177,7 @@
                 <div class="col-md-6">
                   <div class="portfolio-galery">
                     <a href="capas_spa.html">
-                      <div class="photo" style="background-image: url(src/img/galeria/capa_01.jpg);"></div>
+                      <div class="photo" style="background-image: url(src/img/galeria/capa_01.jpg); background-size: cover;"></div>
                     </a>
                     <div class="produto">
                       <div class="title-produto">
@@ -185,7 +193,7 @@
                 <div class="col-md-6">
                   <div class="portfolio-galery">
                     <a href="capas_spa.html">
-                      <div class="photo" style="background-image: url(src/img/galeria/capa_02.jpg);"></div>
+                      <div class="photo" style="background-image: url(src/img/galeria/capa_02.jpg);background-size: cover;"></div>
                     </a>
                     <div class="produto">
                       <div class="title-produto">
@@ -201,7 +209,7 @@
                 <div class="col-md-12">
                   <div class="portfolio-galery">
                     <a href="capas_spa.html">
-                      <div class="photo-horizontal" style="background-image: url(src/img/galeria/capa_04.jpg);"></div>
+                      <div class="photo-horizontal" style="background-image: url(src/img/galeria/capa_04.jpg);background-size: cover;"></div>
                     </a>
                     <div class="produto">
                       <div class="title-produto">
@@ -477,6 +485,25 @@
 </body>
 
 
+<script>
+  const btnMobile = document.getElementById('btn-mobile');
+  function toogleMenu (event){
+
+    if(event.type === 'touchstart') event.preventDefault()
+
+    const nav = document.getElementById('nav-new');
+    nav.classList.toggle('active');
+
+    const active = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', active);
+    if (active) {event.currentTarget.setAttribute('aria-label', 'fechar menu')}else{event.currentTarget.setAttribute('aria-label', 'abrir menu')}
+
+  }
+  btnMobile.addEventListener('click', toogleMenu);
+  btnMobile.addEventListener('touchstart', toogleMenu);
+
+</script>
+
 <!-- JS -->
 <script src="src/js/vendor/modernizr-3.5.0.min.js"></script>
 <script src="src/js/vendor/jquery-1.12.4.min.js"></script>
@@ -487,13 +514,8 @@
 <script src="src/js/wow.min.js"></script>
 
 <script src="src/js/main.js"></script>
-<script>
-  // <!-- scrool do menu -->
-  window.addEventListener('scroll', function () {
-    let header = document.querySelector('header');
-    let windowPosition = window.scrollY > 0;
-    header.classList.toggle('scrolling-active', windowPosition);
-  });
-</script>
+
+
+
 
 </html>

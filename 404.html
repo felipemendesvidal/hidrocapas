@@ -18,7 +18,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="tylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/style2.css" />
     <link rel="stylesheet" href="src/css/responsive.css" />
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap.css" />
@@ -51,31 +51,24 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light menu404">
-            <!-- logo -->
-            <a class="navbar-brand" href="index.html">
-                <img src="src/img/logo.png" alt="logo" />
-            </a>
-
-            <!-- menu mobile -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- menu -->
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                    <a class="nav-link" href="quem-somos.html">Sobre</a>
-                    <a class="nav-link" href="capas_spa.html">Capas Termicas</a>
-                    <a class="nav-link" href="capas_pscinas.html">Para Piscinas</a>
-                    <a class="nav-link" href="contato.html">Contato</a>
-                </div>
-            </div>
+    <header id="header-new">
+        <a href="index.html" id="logo-new"><img src="src/img/logo.png" alt="logo escrito hidrocapas em azul"></a>
+        <nav id="nav-new">
+          <button id="btn-mobile" aria-expanded="false" aria-controls="menu-new" aria-haspopup="true" aria-label="Abrir menu">Menu
+     
+           <span id="burger"></span>
+     
+          </button>
+          <ul id="menu-new" role="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="quem-somos.html">Sobre</a></li>
+            <li><a href="capas_spa.html">Capas Termicas</a></li>
+            <li><a href="capas_pscinas.html">Para Piscinas</a></li>
+            <li><a href="contato.html">Contato</a></li>  
+          </ul>
         </nav>
-    </header>
+        
+       </header>
 
 
     <section class="section-404">
@@ -137,6 +130,24 @@
 
 
 <!-- JS -->
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+    function toogleMenu (event){
+  
+      if(event.type === 'touchstart') event.preventDefault()
+  
+      const nav = document.getElementById('nav-new');
+      nav.classList.toggle('active');
+  
+      const active = nav.classList.contains('active');
+      event.currentTarget.setAttribute('aria-expanded', active);
+      if (active) {event.currentTarget.setAttribute('aria-label', 'fechar menu')}else{event.currentTarget.setAttribute('aria-label', 'abrir menu')}
+  
+    }
+    btnMobile.addEventListener('click', toogleMenu);
+    btnMobile.addEventListener('touchstart', toogleMenu);
+  
+  </script>
 <script src="src/js/vendor/modernizr-3.5.0.min.js"></script>
 <script src="src/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="src/js/popper.min.js"></script>
