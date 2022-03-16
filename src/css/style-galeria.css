@@ -1,0 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.galeria{
+  height: auto;
+  min-height: 500px;
+  width: 100%;
+  display: block;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.grid-sizer, .grid .item {
+ width: 33%;
+ display: block;
+ float: left;
+ padding: 8px;
+}
+
+/* Estilos Parallax */
+
+.grid .item{
+  opacity: 0;
+  transform: translateX(2rem);
+  transition: all 0.5s linear;
+}
+
+.grid .item.show-items{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fin Parallax*/
+
+.grid .item a,.grid .item img {
+	max-width: 100%;
+	display: block;
+	border: none;
+	outline: none;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.pswp__caption__center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.img-pswp:hover:before{
+  content: '';
+  background: #0009;
+  position: absolute;
+  height: 95%;
+  width: 96%;
+  transition: 400ms;
+  background-image: url(../img/lupa.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(3);
+}
+
+.pswp__img{
+  object-fit: cover;
+}
+
+@media screen and (max-width: 767.99px){
+
+  .grid-sizer, .grid .item {
+    width: 49%;
+  }
+
+}
+
+@media screen and (max-width:575.99px){
+
+  .grid-sizer, .grid .item {
+    width: 97%;
+    margin: 10px 5px;
+    padding: 0;
+  }
+
+  .grid .item a, .grid .item img{
+    margin: 0 auto;
+  }
+
+}
